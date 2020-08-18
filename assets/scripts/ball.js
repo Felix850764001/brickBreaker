@@ -7,8 +7,10 @@ cc.Class({
 
     init(gameCtl){
         this.gameCtl = gameCtl;
-        this.node.position = cc.v2(360,270); //初始化位置
-        this.getComponent(cc.RigidBody).linearVelocity = cc.v2(800,800);//初始化速度
+        //初始化位置
+        this.node.position = cc.v2(360,270);
+        //初始化速度
+        this.getComponent(cc.RigidBody).linearVelocity = cc.v2(800,800);
         //开启刚体碰撞监听
         this.enabledContactListener = true;
     },

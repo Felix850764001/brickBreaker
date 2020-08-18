@@ -1,14 +1,14 @@
+//游戏数据监控脚本(控制分数和砖块数)
 cc.Class({
     extends: cc.Component,
 
     properties: {
-        score: 0,
         bricksNumber: 0,
     },
     
     init(){
+        //初始化分数
         this.score = 0;
-        this.bricksNumber = 50;
     },
 
     addScore(score){

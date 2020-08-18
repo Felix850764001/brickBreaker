@@ -6,7 +6,6 @@ cc.Class({
         spacing: 0,
         cols: 0,
         brickPrefab: cc.Prefab,
-        bricksNumber: 0,
     },
 
     init(bricksNumber){

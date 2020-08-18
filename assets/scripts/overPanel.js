@@ -7,9 +7,6 @@ cc.Class({
         scoreLabel: cc.Label,
     },
 
-    // LIFE-CYCLE CALLBACKS:
-
-    //use this for init
     onLoad: function(){
 
     },

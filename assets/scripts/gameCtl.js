@@ -5,8 +5,9 @@ cc.Class({
     properties: {
         gameView: require('gameView'),
         ball: require('ball'),
-        paddle: require('brickLayout'),
-        overPanel: require('overPanel'),
+        paddle: require('paddle'),
+        brickLayout: require('brickLayout'),
+        //overPanel: require('overPanel'),
     },
 
     onLoad: function(){
@@ -50,7 +51,7 @@ cc.Class({
     stopGame(){
         this.physicsManger.enabled = false;
         //bricksNumber == 0判定WIN
-        this.overPanel.show(this.gameModel.score, this.gameModel.bricksNumber === 0);
+        //this.overPanel.show(this.gameModel.score, this.gameModel.bricksNumber === 0);
     },
 
     onBallContactBrick(ballNode, brickNode){
@@ -72,7 +73,7 @@ cc.Class({
     },
 
     onBallContactWall(ballNode, brickNode){
-
+        
     },
 
     onDestroy(){
