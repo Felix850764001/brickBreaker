@@ -1,10 +1,4 @@
-// Learn cc.Class:
-//  - https://docs.cocos.com/creator/manual/en/scripting/class.html
-// Learn Attribute:
-//  - https://docs.cocos.com/creator/manual/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
-
+//游戏结束弹出的窗口脚本
 cc.Class({
     extends: cc.Component,
 
@@ -32,7 +26,7 @@ cc.Class({
         } else{
             this.resultLabel.string = "YOU LOSE!";
         }
-        this.scoreLabel.string = score+'';
+        this.scoreLabel.string = score;
     },
 
     onBtnRestart(){

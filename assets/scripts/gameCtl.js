@@ -1,10 +1,4 @@
-// Learn cc.Class:
-//  - https://docs.cocos.com/creator/manual/en/scripting/class.html
-// Learn Attribute:
-//  - https://docs.cocos.com/creator/manual/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
-
+const GameModel = require('GameModel');
 cc.Class({
     extends: cc.Component,
 
@@ -28,11 +22,12 @@ cc.Class({
     },
 
     init(){
+        //开启物理系统(默认关闭)
         this.physicsManger.enabled = true;
         this.gameModel.init();
 
         this.gameView.init(this);
-        this.ball.init();
+        this.ball.init(this);
         this.paddle.init();
         this.brickLayout.init(this.gameModel.bricksNumber);
         this.overPanel.init(this);
@@ -46,19 +41,22 @@ cc.Class({
         this.physicsManger.enabled = false;
     },
 
+    //重新开始
     resumeGame(){
         this.physicsManger.enabled = true;
     },
 
+    //结束游戏
     stopGame(){
         this.physicsManger.enabled = false;
+        //bricksNumber == 0判定WIN
         this.overPanel.show(this.gameModel.score, this.gameModel.bricksNumber === 0);
     },
 
     onBallContactBrick(ballNode, brickNode){
         brickNode.parent = null;
-        this.gameModel.addScore(1);
-        this.gameModel.minusBrick(1);
+        this.gameModel.addScore(1);     //击中加分
+        this.gameModel.minusBrick(1);   //砖块数量-1
         this.gameView.updateScore(this.gameModel.score);
         if(this.gameModel.bricksNumber <= 0){
             this.stopGame();
@@ -79,6 +77,7 @@ cc.Class({
 
     onDestroy(){
         this.physicsManger.enabled = false;
-    }
+    },
+
     // update (dt) {},
 });
