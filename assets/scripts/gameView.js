@@ -7,7 +7,7 @@ cc.Class({
     },
 
     init(gameCtl){
-        this.gameCtl = gameCtl;
+        //this.gameCtl = gameCtl;
         this.scoreLabel.string = '0';
     },
 

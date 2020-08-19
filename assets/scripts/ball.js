@@ -11,8 +11,8 @@ cc.Class({
         this.node.position = cc.v2(360,270);
         //初始化速度
         this.getComponent(cc.RigidBody).linearVelocity = cc.v2(800,800);
-        //开启刚体碰撞监听
-        this.enabledContactListener = true;
+        // 获得节点上的刚体组件
+        this.heroRigidBody = this.getComponent(cc.RigidBody);
     },
 
     //碰撞开始时调用

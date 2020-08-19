@@ -6,14 +6,15 @@ cc.Class({
     },
 
     onLoad: function(){
-        // 设置键盘监听
+        // 初始化键盘监听
         cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyPressed, this);
         cc.systemEvent.on(cc.SystemEvent.EventType.KEY_UP, this.onKeyReleased, this);
+        // 获得节点上的刚体组件
+        this.heroRigidBody = this.getComponent(cc.RigidBody);
     },
 
-    onKeyPressed: function(event){
-        let keyCode = event.keyCode;
-        switch(keyCode){
+    onKeyPressed(event){
+        switch(event.keyCode){
             case cc.macro.KEY.a:
                 this.direction = -1;
                 break;
@@ -23,9 +24,8 @@ cc.Class({
         }
     },
 
-    onKeyReleased: function(event){
-        let keyCode = event.keyCode;
-        switch(keyCode){
+    onKeyReleased(event){
+        switch(event.keyCode){
             case cc.macro.KEY.a:
                 this.direction = 0;
                 break;
@@ -38,6 +38,7 @@ cc.Class({
     on_player_walk: function(direction){
         //获取之前的刚体组件的线速度
         var v = this.heroRigidBody.linearVelocity;
+        console.log("刚体线速度为:"+v);
         //改变其x方向速度
         v.x = this.moveSpeed * direction;
         //将改变后的值赋值回去
@@ -45,16 +46,22 @@ cc.Class({
     },
 
     init(){
+        //初始化位置
         this.node.x = 360;
+        //初始化速度
+        this.getComponent(cc.RigidBody).linearVelocity = cc.v2(0,0);
+        this.direction = 0;
     },
 
     update (dt){
         if(this.direction != 0){
             this.on_player_walk(this.direction);
+        } else{
+            this.heroRigidBody.linearVelocity = cc.v2(0,0);
         }
         //限制paddle在屏幕内移动
         if(this.node.x <= 89 || this.node.x >= 631){
-            this.direction = 0;
+            this.heroRigidBody.linearVelocity = cc.v2(0,0);
         }
     }
 });

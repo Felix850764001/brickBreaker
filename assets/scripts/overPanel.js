@@ -26,7 +26,7 @@ cc.Class({
         this.scoreLabel.string = score;
     },
 
-    onBtnRestart(){
+    onRestart(){
         this.gameCtl.startGame();
     }
 });

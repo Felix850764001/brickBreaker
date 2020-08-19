@@ -12,26 +12,26 @@ cc.Class({
 
     onLoad: function(){
         //安卓返回键退出
-        cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN,(event)=>{
-            if(event.keyCode === cc.KEY.back){
-                cc.director.end();
-            }
-        });
-        this.physicsManger = cc.director.getPhysicsManger();
+        // cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN,(event)=>{
+        //     if(event.keyCode === cc.KEY.back){
+        //         cc.director.end();
+        //     }
+        // });
+        //this.physicsManger = cc.director.getPhysicsManger();
         this.gameModel = new GameModel();
         this.startGame();
     },
 
     init(){
         //开启物理系统(默认关闭)
-        this.physicsManger.enabled = true;
-        this.gameModel.init();
+        cc.director.getPhysicsManager().enabled = true;
 
+        this.gameModel.init();
         this.gameView.init(this);
         this.ball.init(this);
         this.paddle.init();
         this.brickLayout.init(this.gameModel.bricksNumber);
-        this.overPanel.init(this);
+        //this.overPanel.init(this);
     },
 
     startGame(){
@@ -39,17 +39,17 @@ cc.Class({
     },
 
     pauseGame(){
-        this.physicsManger.enabled = false;
+        cc.director.getPhysicsManager().enabled = false;
     },
 
     //重新开始
     resumeGame(){
-        this.physicsManger.enabled = true;
+        cc.director.getPhysicsManager().enabled = true;
     },
 
     //结束游戏
     stopGame(){
-        this.physicsManger.enabled = false;
+        cc.director.getPhysicsManager().enabled = false;
         //bricksNumber == 0判定WIN
         //this.overPanel.show(this.gameModel.score, this.gameModel.bricksNumber === 0);
     },
@@ -77,7 +77,7 @@ cc.Class({
     },
 
     onDestroy(){
-        this.physicsManger.enabled = false;
+        cc.director.getPhysicsManager().enabled = false;
     },
 
     // update (dt) {},
