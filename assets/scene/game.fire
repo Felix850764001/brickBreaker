@@ -691,8 +691,8 @@
     "_skewX": 0,
     "_skewY": 0,
     "_is3DNode": false,
-    "_groupIndex": 0,
-    "groupIndex": 0,
+    "_groupIndex": 1,
+    "groupIndex": 1,
     "_id": "3fF6QvLc9GOoI7lY+4JqHK"
   },
   {
@@ -816,7 +816,7 @@
       "ctor": "Float64Array",
       "array": [
         360,
-        162.332,
+        162,
         0,
         0,
         0,
@@ -836,8 +836,8 @@
     "_skewX": 0,
     "_skewY": 0,
     "_is3DNode": false,
-    "_groupIndex": 0,
-    "groupIndex": 0,
+    "_groupIndex": 5,
+    "groupIndex": 5,
     "_id": "b8iME8XgRHGIdavgCzHOCF"
   },
   {
@@ -880,19 +880,19 @@
       "__id__": 18
     },
     "_enabled": true,
-    "_type": 0,
+    "_type": 1,
     "_allowSleep": true,
     "_gravityScale": 1,
     "_linearDamping": 0,
     "_angularDamping": 0,
     "_linearVelocity": {
       "__type__": "cc.Vec2",
-      "x": 0,
+      "x": 200,
       "y": 0
     },
     "_angularVelocity": 0,
     "_fixedRotation": false,
-    "enabledContactListener": false,
+    "enabledContactListener": true,
     "bullet": false,
     "awakeOnLoad": true,
     "_id": "0d4ci99gdBvb7zlL6Owu9w"
@@ -1001,8 +1001,8 @@
     "_skewX": 0,
     "_skewY": 0,
     "_is3DNode": false,
-    "_groupIndex": 0,
-    "groupIndex": 0,
+    "_groupIndex": 2,
+    "groupIndex": 2,
     "_id": "cdd9sxJoxGrZT0DHvs36U/"
   },
   {
@@ -1025,7 +1025,7 @@
     },
     "_angularVelocity": 0,
     "_fixedRotation": false,
-    "enabledContactListener": false,
+    "enabledContactListener": true,
     "bullet": false,
     "awakeOnLoad": true,
     "_id": "2064kYzr1CV69ftDv9q7ow"
@@ -1064,7 +1064,7 @@
       "__id__": 23
     },
     "_enabled": true,
-    "tag": 2,
+    "tag": 4,
     "_density": 1,
     "_sensor": false,
     "_friction": 0.2,
@@ -1169,8 +1169,8 @@
     "_skewX": 0,
     "_skewY": 0,
     "_is3DNode": false,
-    "_groupIndex": 0,
-    "groupIndex": 0,
+    "_groupIndex": 3,
+    "groupIndex": 3,
     "_id": "88js50mgNGdYHqWNcrv+ar"
   },
   {
@@ -1193,7 +1193,7 @@
     },
     "_angularVelocity": 0,
     "_fixedRotation": false,
-    "enabledContactListener": false,
+    "enabledContactListener": true,
     "bullet": false,
     "awakeOnLoad": true,
     "_id": "2d20vx9GZPfo+JkovJ+aR5"

@@ -21,9 +21,5 @@ cc.Class({
 
     // onLoad () {},
 
-    start () {
-
-    },
-
     // update (dt) {},
 });

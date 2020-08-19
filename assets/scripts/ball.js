@@ -6,6 +6,10 @@ cc.Class({
     },
 
     init(gameCtl){
+        //开启物理系统(默认关闭)
+        cc.director.getPhysicsManager().enabled = true;
+        //开启碰撞回调
+        this.getComponent(cc.RigidBody).enabledContactListener = true;
         this.gameCtl = gameCtl;
         //初始化位置
         this.node.position = cc.v2(360,270);
