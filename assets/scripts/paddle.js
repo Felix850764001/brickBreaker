@@ -7,7 +7,7 @@ cc.Class({
 
     onLoad: function(){
         //开启物理系统(默认关闭)
-        cc.director.getPhysicsManager().enabled = true;
+        //cc.director.getPhysicsManager().enabled = true;
         // 初始化键盘监听
         cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyPressed, this);
         cc.systemEvent.on(cc.SystemEvent.EventType.KEY_UP, this.onKeyReleased, this);

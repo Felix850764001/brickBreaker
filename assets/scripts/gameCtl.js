@@ -1,8 +1,9 @@
-const GameModel = require('GameModel');
+// const GameModel = require('GameModel');
 cc.Class({
     extends: cc.Component,
 
     properties: {
+        //gameModel: require('gameModel'),
         gameView: require('gameView'),
         ball: require('ball'),
         paddle: require('paddle'),
@@ -11,14 +12,8 @@ cc.Class({
     },
 
     onLoad: function(){
-        //安卓返回键退出
-        // cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN,(event)=>{
-        //     if(event.keyCode === cc.KEY.back){
-        //         cc.director.end();
-        //     }
-        // });
-        //this.physicsManger = cc.director.getPhysicsManger();
-        this.gameModel = new GameModel();
+        this.gameModel = this.node.getComponent("gameModel");
+        //this.gameModel = new GameModel();
         this.startGame();
     },
 
@@ -55,7 +50,7 @@ cc.Class({
     },
 
     onBallContactBrick(ballNode, brickNode){
-        brickNode.parent = null;
+        //brickNode.parent = null;
         this.gameModel.addScore(1);     //击中加分
         this.gameModel.minusBrick(1);   //砖块数量-1
         this.gameView.updateScore(this.gameModel.score);
@@ -69,7 +64,7 @@ cc.Class({
     },
 
     onBallContactPaddle(ballNode, paddleNode){
-        
+
     },
 
     onBallContactWall(ballNode, brickNode){

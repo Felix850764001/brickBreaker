@@ -15,6 +15,5 @@ cc.Class({
         this.scoreLabel.string = score;
     }
 
-
     // update (dt) {},
 });
