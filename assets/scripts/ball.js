@@ -9,10 +9,16 @@ cc.Class({
         //开启物理系统(默认关闭)
         //cc.director.getPhysicsManager().enabled = true;
         this.gameCtl = gameCtl;
-        //初始化位置
-        this.node.position = cc.v2(360,270);
+        //随机初始化位置
+        this.node.position = cc.v2(50+Math.random()*680,270);
         //初始化速度
-        this.getComponent(cc.RigidBody).linearVelocity = cc.v2(800,800);
+        v = Math.random()-0.5;
+        if(v <= 0){
+            v = -1;
+        } else{
+            v = 1;
+        }
+        this.getComponent(cc.RigidBody).linearVelocity = cc.v2(v * 800,800);
         // 获得节点上的刚体组件
         this.heroRigidBody = this.getComponent(cc.RigidBody);
     },
