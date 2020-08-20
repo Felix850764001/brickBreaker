@@ -11,7 +11,6 @@ cc.Class({
     init(bricksNumber){
         this.node.removeAllChildren();
         this.bricksNumber = bricksNumber;
-        console.log('数量为:'+bricksNumber);
         for(let i=0; i<this.bricksNumber; i++){
             var brickNode = cc.instantiate(this.brickPrefab);
             this.node.addChild(brickNode);

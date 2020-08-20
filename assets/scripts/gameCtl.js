@@ -51,6 +51,8 @@ cc.Class({
 
     onBallContactBrick(ballNode, brickNode){
         //brickNode.parent = null;
+        brickNode.opacity = 0;     //把砖块设置为透明
+        brickNode.removeComponent(cc.RigidBody);      //移除刚体组件，让brick无法与ball碰撞
         this.gameModel.addScore(1);     //击中加分
         this.gameModel.minusBrick(1);   //砖块数量-1
         this.gameView.updateScore(this.gameModel.score);
