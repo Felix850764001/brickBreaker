@@ -3,17 +3,16 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        //gameModel: require('gameModel'),
         gameView: require('gameView'),
         ball: require('ball'),
         paddle: require('paddle'),
         brickLayout: require('brickLayout'),
-        //overPanel: require('overPanel'),
+        gameOver: require('gameOver'),
+        buttonNode: require('buttonNode'),
     },
 
     onLoad: function(){
         this.gameModel = this.node.getComponent("gameModel");
-        //this.gameModel = new GameModel();
         this.startGame();
     },
 
@@ -26,7 +25,8 @@ cc.Class({
         this.ball.init(this);
         this.paddle.init();
         this.brickLayout.init(this.gameModel.bricksNumber);
-        //this.overPanel.init(this);
+        this.gameOver.init(this);
+        this.buttonNode.init(this);
     },
 
     startGame(){
@@ -46,11 +46,10 @@ cc.Class({
     stopGame(){
         cc.director.getPhysicsManager().enabled = false;
         //bricksNumber == 0判定WIN
-        //this.overPanel.show(this.gameModel.score, this.gameModel.bricksNumber === 0);
+        this.gameOver.show(this.gameModel.score, this.gameModel.num === 0);
     },
 
     onBallContactBrick(ballNode, brickNode){
-        //brickNode.parent = null;
         brickNode.opacity = 0;     //把砖块设置为透明
         brickNode.removeComponent(cc.RigidBody);      //移除刚体组件，让brick无法与ball碰撞
         this.gameModel.addScore(1);     //击中加分

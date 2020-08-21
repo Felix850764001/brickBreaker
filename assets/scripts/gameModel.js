@@ -9,6 +9,7 @@ cc.Class({
     init(){
         //初始化分数
         this.score = 0;
+        this.num = this.bricksNumber;
     },
 
     addScore(score){
@@ -16,7 +17,7 @@ cc.Class({
     },
 
     minusBrick(n){
-        this.bricksNumber -= n;
+        this.num -= n;
     },
 
 });
